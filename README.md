@@ -64,7 +64,6 @@ A aplicação apresenta telas que se conectam à API administrativa e permitem:
 * **Next.js**
 * **TailwindCSS**
 * **React Hooks**
-* **Fetch API** para comunicação com a API
 * **Node.js + npm**
 
 
@@ -114,6 +113,7 @@ http://localhost:3000
 * `/compras/adicionar` – Cadastro de compra
 * `/tipos` – CRUD de tipos
 * `/itens` – CRUD de itens
+
 
 
 
