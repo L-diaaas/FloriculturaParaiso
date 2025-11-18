@@ -56,19 +56,19 @@ export default function Home() {
     <>
 
       <div className="flex ">
-        <nav className="md:w-[70%] md:h-16 bg-padrao shadow-md flex items-center gap-x-4 shrink-0 h-[35px] w-screen"> 
+        <nav className="md:w-[70%] md:h-16 bg-padrao shadow-md flex items-center gap-x-4 shrink-0 h-[40px] w-screen"> 
           <img className="md:h-12 md:w-20 shrink-0 ml-4  h-6 w-10" src="/Floricultura.png" alt="Logo da Floricultura"/>
           <div>
-            <div className="text-lg md:font-medium font-sm text-black ">Floricultura Paraíso</div>
-            <p className="text-gray-500 text-xs">Seu buquê como uma carta de amor!</p>
+            <div className="opacity-100 mt-11 md:mt-0 text-xs md:text-lg md:font-medium font-bold text-black ">Floricultura Paraíso</div>
+            <p className="opacity-0 md:text-gray-500 md:text-xs md:opacity-100">Seu buquê como uma carta de amor!</p>
           </div>
-          <div className="flex w-[45%] items-center justify-center gap-x-5">
+          <div className="opacity-0 md:opacity-100 md:flex md:w-[45%] w-[0%] md:items-center md:justify-center md:gap-x-5">
             <a href="#home" className="ml-15 hover:text-verdesaja hover:underline hover:underline-offset-15 hover:decoration-2">Home</a>
             <a href="#sobre-nos" className="hover:text-verdesaja hover:underline hover:underline-offset-15 hover:decoration-2">Sobre nós</a>
             <a href="#produtos" className="hover:text-verdesaja hover:underline hover:underline-offset-15 hover:decoration-2">Produtos</a>
             <a href="#avaliacoes" className="hover:text-verdesaja hover:underline hover:underline-offset-15 hover:decoration-2">Avaliações</a>
           </div>
-          <Link href="/login" className="ml-10 bg-verdesaja text-white h-[50hv] w-[12%] rounded-full shadow-md hover:bg-verdeagua hover:text-white/75 flex items-center justify-center relative z-20">Login</Link>
+          <Link href="/login" className="ml-0 mr-2 md:mr-0 md:ml-10 bg-verdesaja text-white h-[4vh] w-[15%] md:h-[50hv] md:w-[12%] rounded-full shadow-md hover:bg-verdeagua hover:text-white/75 flex items-center justify-center relative z-20">Login</Link>
         </nav>
         
         <div style={{ background: 'linear-gradient(to bottom, #8BC4BF, #D3F0E3)' }} className="object-right h-100 w-196 rounded-l-lg opacity-0 sm:opacity-100">
@@ -78,15 +78,15 @@ export default function Home() {
       </div>
       
       <div id="home" className="absolute w-220 h-83 top-[70px]">
-        <div className="absolute content-start top-[35px] w-145 left-[35px] h-82">
-          <p className="text-4xl font-bold text-left leading-snug">As flores são as cartas mais puras para demonstrar o verdadeiro amor.</p>
+        <div className="absolute content-start top-[35px] md:w-145 w-95 md:left-[35px] left-[12px] h-82">
+          <p className="md:text-4xl text-2xl font-bold text-left leading-snug">As flores são as cartas mais puras para demonstrar o verdadeiro amor.</p>
           <p className="text-lg">Presenteie agora quem você ama.</p>
         </div>
       </div>
-      <button className="absolute bg-verdesaja text-white text-medium font-bold h-15 w-40 top-[320px] ml-100 rounded-lg shadow-md hover:bg-verdepastel hover:text-verdesaja">Contate-nos</button>
+      <button className="absolute bg-verdesaja text-white md:text-medium text-sm md:font-bold font-medium md:h-15 md:w-40 h-10 w-25 md:top-[320px] md:ml-100 ml-30 top-[250px] rounded-lg shadow-md hover:bg-verdepastel hover:text-verdesaja">Contate-nos</button>
 
 
-      <div id="sobre-nos" className="w-full h-[50vh] flex flex-col justify-center items-center bg-[url('/fundoFolhas.jpg')] bg-cover bg-center bg-no-repeat p-4">
+      <div id="sobre-nos" className="md:w-full h-[50vh] flex flex-col justify-center items-center md:bg-[url('/fundoFolhas.jpg')] bg-cover bg-center bg-no-repeat p-4">
 
         <div className="w-full max-w-4xl text-center mb-4">
           <p className="font-medium text-lg drop-shadow-lg">A Floricultura Paraíso está desde 2019 presenteando paixões e espalhando amor através de petalas...</p>
@@ -99,13 +99,13 @@ export default function Home() {
           <p className="text-sm font-semibold mt-4">Assim nasceu a Floricultura Paraíso: a realização de tudo o que acreditamos ser mais belo.</p>
         </div>
 
-        <div className="mt-6">
-          <button className="bg-verdesaja w-auto px-6 h-[6vh] rounded-lg shadow-xl text-white font-bold hover:bg-verdepastel hover:text-verdesaja transition duration-300">Saiba mais!</button>
+        <div className="md:mt-6 mb-15 md:mb-0">
+          <button className="bg-verdesaja w-auto md:px-6 px-2 h-[6vh] rounded-lg shadow-xl text-white font-bold hover:bg-verdepastel hover:text-verdesaja transition duration-300">Saiba mais!</button>
         </div>
       </div>
       
       
-      <div id="produtos" className="w-full py-10">
+      <div id="produtos" className="md:w-full md:py-10">
         <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">Produtos em Destaque</h2>
         
         <div className="max-w-7xl mx-auto px-4">
@@ -183,7 +183,7 @@ export default function Home() {
       
 
       <div className="rounded-t-md flex flex-col w-[100%] h-auto mt-[1%] items-center p-4 bg-padrao shadow-[0_-5px_10px_-2px_rgba(0,0,0,0.1)]">
-        <div className="flex flex-col md:flex-row justify-center items-start w-full max-w-6xl mx-auto py-4 gap-8 md:gap-12 mr-[15px]">
+        <div className="flex flex-col md:flex-row justify-center items-start w-full max-w-6xl mx-auto py-4 gap-8 md:gap-12 mr-10">
           <div className="flex items-start space-x-4 w-full md:w-1/3">
             <div className="flex-shrink-0 pt-1">
               <img src="/iconeLocalizacao.png" alt="Localização" width={32} height={32} className="w-8 h-8"/>

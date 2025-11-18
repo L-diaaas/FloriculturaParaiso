@@ -53,7 +53,7 @@ export default function AdicionarCompra() {
 
     setCompras((prev) => [...prev, novaCompra]);
 
-    // Zera o formulário
+
     setForm({
       id: 0,
       data: "",
@@ -67,7 +67,6 @@ export default function AdicionarCompra() {
   return (
     <div className="min-h-screen p-8 relative">
 
-      {/* FUNDO */}
       <img
         src="/fundoCompras.jpg"
         alt="Fundo"
@@ -89,12 +88,12 @@ export default function AdicionarCompra() {
           <PlusCircle size={30} className="text-white" />
         </h2>
 
-        {/* FORMULÁRIO */}
+
         <form
           onSubmit={handleSalvar}
           className="bg-[#D3F0E3] p-6 rounded-lg shadow-lg bg-opacity-90 grid grid-cols-1 md:grid-cols-2 gap-4"
         >
-          {/* Data */}
+
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Data da Compra</label>
             <input
@@ -107,7 +106,7 @@ export default function AdicionarCompra() {
             />
           </div>
 
-          {/* Cliente */}
+
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Cliente</label>
             <select
@@ -124,7 +123,7 @@ export default function AdicionarCompra() {
             </select>
           </div>
 
-          {/* Itens */}
+
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Quantidade de Itens</label>
             <input
@@ -138,7 +137,7 @@ export default function AdicionarCompra() {
             />
           </div>
 
-          {/* Valor Total */}
+
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Valor Total (R$)</label>
             <input
@@ -153,7 +152,7 @@ export default function AdicionarCompra() {
             />
           </div>
 
-          {/* Status */}
+
           <div className="md:col-span-2">
             <label className="block text-sm font-medium text-gray-700 mb-1">Status</label>
             <select
@@ -178,7 +177,6 @@ export default function AdicionarCompra() {
           </div>
         </form>
 
-        {/* LISTAGEM MOCK DAS COMPRAS CADASTRADAS */}
         {compras.length > 0 && (
           <div className="mt-8 bg-[#D3F0E3] p-6 rounded-lg shadow-lg bg-opacity-90">
             <h3 className="text-xl font-semibold mb-4 text-gray-800">Compras Cadastradas</h3>

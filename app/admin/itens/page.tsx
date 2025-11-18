@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { PlusCircle, Edit, Trash2, ArrowLeft } from "lucide-react";
-import Link from "next/link"; // ✅ CORRETO NO NEXT
+import Link from "next/link";
 
 type Item = {
   id: number;
@@ -95,29 +95,37 @@ export default function PaginaItens() {
 
   return (
     <div
-      className="min-h-screen p-8 bg-cover bg-center bg-no-repeat"
+      className="
+        min-h-screen 
+        p-4 sm:p-8 
+        bg-cover bg-center bg-no-repeat
+        max-sm:bg-none
+      "
       style={{ backgroundImage: "url('/images/itens-img.png')" }}
     >
-      <div className="container mx-auto max-w-6xl">
+      <div className="container mx-auto max-w-6xl px-2 sm:px-0">
 
-        {/* BOTÃO DE VOLTAR */}
-        <div className="mb-6">
+        <div className="mb-6 max-sm:flex max-sm:justify-center">
           <Link
             href="/admin/tipos"
-            className="bg-[#9FC5B4] text-white px-4 py-2 rounded-lg hover:bg-[#8ab5a3] transition flex items-center gap-2 w-fit"
+            className="
+              bg-[#9FC5B4] text-white px-4 py-2 
+              rounded-lg hover:bg-[#8ab5a3] transition 
+              flex items-center gap-2 w-fit
+            "
           >
             <ArrowLeft size={18} />
             Voltar para Tipos
           </Link>
         </div>
 
-        <h2 className="text-2xl font-semibold text-white mb-6 drop-shadow">
+        <h2 className="text-2xl font-semibold text-white mb-6 drop-shadow text-center sm:text-left">
           Gestão de Itens
         </h2>
 
-        {/* FORMULÁRIO */}
-        <div className="bg-[#D3F0E3] p-6 rounded-lg shadow-lg mb-8">
-          <h3 className="text-xl font-semibold mb-5 text-gray-800">
+
+        <div className="bg-[#D3F0E3] p-4 sm:p-6 rounded-lg shadow-lg mb-8">
+          <h3 className="text-xl font-semibold mb-5 text-gray-800 text-center sm:text-left">
             {editandoId ? "Editar Item" : "Adicionar Item"}
           </h3>
 
@@ -125,7 +133,7 @@ export default function PaginaItens() {
             <input
               type="number"
               placeholder="ID da Compra"
-              className="border p-3 rounded border-[#9FC5B4] text-gray-900 placeholder-gray-600"
+              className="border p-3 rounded border-[#9FC5B4]"
               value={compraId}
               onChange={(e) => setCompraId(e.target.value)}
             />
@@ -133,7 +141,7 @@ export default function PaginaItens() {
             <input
               type="number"
               placeholder="ID do Produto"
-              className="border p-3 rounded border-[#9FC5B4] text-gray-900 placeholder-gray-600"
+              className="border p-3 rounded border-[#9FC5B4]"
               value={produtoId}
               onChange={(e) => setProdutoId(e.target.value)}
             />
@@ -141,7 +149,7 @@ export default function PaginaItens() {
             <input
               type="number"
               placeholder="Quantidade"
-              className="border p-3 rounded border-[#9FC5B4] text-gray-900 placeholder-gray-600"
+              className="border p-3 rounded border-[#9FC5B4]"
               value={quantidade}
               onChange={(e) => setQuantidade(e.target.value)}
             />
@@ -150,13 +158,13 @@ export default function PaginaItens() {
               type="number"
               step="0.01"
               placeholder="Valor Unitário"
-              className="border p-3 rounded border-[#9FC5B4] text-gray-900 placeholder-gray-600"
+              className="border p-3 rounded border-[#9FC5B4]"
               value={valorUnitario}
               onChange={(e) => setValorUnitario(e.target.value)}
             />
           </div>
 
-          <div className="flex justify-end gap-3 mt-6">
+          <div className="flex justify-end gap-3 mt-6 max-sm:justify-center">
             {editandoId && (
               <button
                 onClick={resetarFormulario}
@@ -177,29 +185,47 @@ export default function PaginaItens() {
         </div>
 
         {/* TABELA */}
-        <div className="bg-[#D3F0E3] rounded-lg shadow-lg overflow-hidden border border-[#9FC5B4]">
-          <table className="min-w-full divide-y divide-[#9FC5B4]">
+        <div className="
+          bg-[#D3F0E3] rounded-lg shadow-lg 
+          overflow-x-auto 
+          border border-[#9FC5B4]
+        ">
+          <table className="min-w-full divide-y divide-[#9FC5B4] text-sm">
             <thead className="bg-[#9FC5B4]">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">ID</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Compra ID</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Produto ID</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Quantidade</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Valor Unitário</th>
-                <th className="px-6 py-3 text-right text-xs font-medium text-white uppercase tracking-wider">Ações</th>
+                <th className="px-3 sm:px-6 py-3 text-left text-xs font-medium text-white uppercase">
+                  ID
+                </th>
+                <th className="px-3 sm:px-6 py-3 text-left text-xs font-medium text-white uppercase">
+                  Compra ID
+                </th>
+                <th className="px-3 sm:px-6 py-3 text-left text-xs font-medium text-white uppercase">
+                  Produto ID
+                </th>
+                <th className="px-3 sm:px-6 py-3 text-left text-xs font-medium text-white uppercase">
+                  Quantidade
+                </th>
+                <th className="px-3 sm:px-6 py-3 text-left text-xs font-medium text-white uppercase">
+                  Valor Unitário
+                </th>
+                <th className="px-3 sm:px-6 py-3 text-right text-xs font-medium text-white uppercase">
+                  Ações
+                </th>
               </tr>
             </thead>
 
             <tbody className="bg-[#D3F0E3] divide-y divide-[#9FC5B4]">
               {itens.map((item) => (
                 <tr key={item.id}>
-                  <td className="px-6 py-4 text-sm text-gray-900">{item.id}</td>
-                  <td className="px-6 py-4 text-sm text-gray-900">{item.compra_id}</td>
-                  <td className="px-6 py-4 text-sm text-gray-900">{item.produto_id}</td>
-                  <td className="px-6 py-4 text-sm text-gray-900">{item.quantidade}</td>
-                  <td className="px-6 py-4 text-sm text-gray-900">R$ {item.valor_unitario.toFixed(2)}</td>
+                  <td className="px-3 sm:px-6 py-3 sm:py-4">{item.id}</td>
+                  <td className="px-3 sm:px-6 py-3 sm:py-4">{item.compra_id}</td>
+                  <td className="px-3 sm:px-6 py-3 sm:py-4">{item.produto_id}</td>
+                  <td className="px-3 sm:px-6 py-3 sm:py-4">{item.quantidade}</td>
+                  <td className="px-3 sm:px-6 py-3 sm:py-4">
+                    R$ {item.valor_unitario.toFixed(2)}
+                  </td>
 
-                  <td className="px-6 py-4 text-right text-sm font-medium space-x-3">
+                  <td className="px-3 sm:px-6 py-3 sm:py-4 text-right space-x-3">
                     <button
                       className="text-blue-600 hover:text-blue-800"
                       onClick={() => handleEditar(item)}

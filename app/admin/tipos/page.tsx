@@ -59,35 +59,37 @@ export default function PaginaTipos() {
 
   return (
     <div
-      className="min-h-screen p-8 bg-cover bg-center bg-no-repeat"
+      className="min-h-screen p-4 sm:p-6 md:p-8 bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: "url('/images/tipos-img.png')" }}
     >
-      <div className="container mx-auto max-w-5xl">
+      <div className="container mx-auto max-w-5xl bg-white/20 backdrop-blur-sm p-4 rounded-xl sm:p-6 md:p-8">
+        
+
         <a
-            href="/admin/"
-            className="px-4 py-1 rounded-md bg-verdesaja text-white hover:bg-teal-900 transition-colors duration-150 shadow-md"
+          href="/admin/"
+          className="px-4 py-1 rounded-md bg-verdesaja text-white hover:bg-teal-900 transition-colors duration-150 shadow-md text-sm sm:text-base"
         >
-            Voltar
+          Voltar
         </a>
 
-        {/* TÍTULO */}
-        <h2 className="text-2xl font-semibold text-white mb-6 pt-4 drop-shadow">
+
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white mb-6 mt-4 drop-shadow">
           Gestão de Tipos de Flores
         </h2>
 
-        <div className="flex justify-end mb-6">
 
-        <Link
+        <div className="flex justify-end mb-6">
+          <Link
             href="/admin/itens"
-            className="bg-emerald-600 text-white px-5 py-2 rounded-lg hover:bg-emerald-700 transition-colors"
-        >
+            className="bg-emerald-600 text-white px-4 sm:px-5 py-2 rounded-lg hover:bg-emerald-700 transition-colors text-sm sm:text-base"
+          >
             Ver Itens
-        </Link>
+          </Link>
         </div>
 
-        {/* FORMULÁRIO */}
-        <div className="bg-[#D3F0E3] p-6 rounded-lg shadow-lg mb-8">
-          <h3 className="text-xl font-semibold mb-5 text-gray-800">
+
+        <div className="bg-[#D3F0E3] p-4 sm:p-6 rounded-lg shadow-lg mb-8">
+          <h3 className="text-lg sm:text-xl font-semibold mb-5 text-gray-800">
             {editandoId ? "Editar Tipo" : "Adicionar Novo Tipo"}
           </h3>
 
@@ -101,18 +103,18 @@ export default function PaginaTipos() {
             />
           </div>
 
-          <div className="flex justify-end gap-3 mt-6">
+          <div className="flex flex-col sm:flex-row justify-end gap-3 mt-6">
             {editandoId && (
               <button
                 onClick={resetarFormulario}
-                className="bg-gray-500 text-white px-5 py-2 rounded-lg hover:bg-gray-600 transition-colors"
+                className="bg-gray-500 text-white px-5 py-2 rounded-lg hover:bg-gray-600 transition-colors text-sm sm:text-base"
               >
                 Cancelar
               </button>
             )}
             <button
               onClick={handleSalvar}
-              className="bg-emerald-600 text-white px-5 py-2 rounded-lg hover:bg-emerald-700 transition-colors flex items-center gap-2"
+              className="bg-emerald-600 text-white px-5 py-2 rounded-lg hover:bg-emerald-700 transition-colors flex items-center gap-2 text-sm sm:text-base"
             >
               <PlusCircle size={18} />
               {editandoId ? "Salvar Alterações" : "Adicionar Tipo"}
@@ -120,18 +122,18 @@ export default function PaginaTipos() {
           </div>
         </div>
 
-        {/* TABELA */}
-        <div className="bg-[#D3F0E3] rounded-lg shadow-lg overflow-hidden border border-[#9FC5B4]">
-          <table className="min-w-full divide-y divide-[#9FC5B4]">
+
+        <div className="bg-[#D3F0E3] rounded-lg shadow-lg overflow-x-auto border border-[#9FC5B4]">
+          <table className="min-w-full divide-y divide-[#9FC5B4] text-sm">
             <thead className="bg-[#9FC5B4]">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                <th className="px-4 sm:px-6 py-3 text-left font-medium text-white uppercase">
                   ID
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                <th className="px-4 sm:px-6 py-3 text-left font-medium text-white uppercase">
                   Nome do Tipo
                 </th>
-                <th className="px-6 py-3 text-right text-xs font-medium text-white uppercase tracking-wider">
+                <th className="px-4 sm:px-6 py-3 text-right font-medium text-white uppercase">
                   Ações
                 </th>
               </tr>
@@ -139,16 +141,16 @@ export default function PaginaTipos() {
 
             <tbody className="bg-[#D3F0E3] divide-y divide-[#9FC5B4]">
               {tipos.map((tipo) => (
-                <tr key={tipo.id}>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                <tr key={tipo.id} className="hover:bg-[#c8e9d6]">
+                  <td className="px-4 sm:px-6 py-4 text-gray-900">
                     {tipo.id}
                   </td>
 
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                  <td className="px-4 sm:px-6 py-4 text-gray-900">
                     {tipo.nome}
                   </td>
 
-                  <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium space-x-3">
+                  <td className="px-4 sm:px-6 py-4 text-right space-x-3 whitespace-nowrap">
                     <button
                       onClick={() => handleEditar(tipo)}
                       className="text-blue-600 hover:text-blue-800"

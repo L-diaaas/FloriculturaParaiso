@@ -12,45 +12,12 @@ export default function AdminHome() {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-
-
-    /*
-    const token = localStorage.getItem("token");
-
-    if (!token) {
-      router.push("/login"); 
-      return;
-    }
-    */
-
-    /*
-    fetch("http://127.0.0.1:5000/produtos/", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then(async (res) => {
-        if (res.status === 401 || res.status === 403) {
-          localStorage.removeItem("token");
-          router.push("/login");
-        } else {
-          const data = await res.json();
-          setProdutos(data);
-        }
-      })
-      .catch(() => router.push("/login"));
-    */
-
-
-
     fetch("http://127.0.0.1:5000/produtos/")
       .then((res) => res.json())
       .then((data) => setProdutos(data))
       .catch((error) => console.error("Erro ao carregar produtos:", error));
-
   }, [router]);
 
-  
   const cards = [
     { title: "Produtos", subtitle: "Quantidade", icon: "/images/produtos.png", color: "#D3F0E3", link:"/admin/produtos"},
     { title: "Tipos", subtitle: "Nomes", icon: "/images/tipos.png", color: "#77CBBD", link:"/admin/tipos" },
@@ -66,40 +33,40 @@ export default function AdminHome() {
 
   return (
     <>
+      <main className="flex bg-[#F8FFFC] min-h-screen relative">
 
-    <main className="flex bg-[#F8FFFC]">
-      {/* Sidebar fixa */}
-      <Sidebar />
 
-      {/* Conteúdo principal */}
-      <div className="flex-1 p-10 min-h-screen ml-64 bg-white relative">
-        {/* Imagem decorativa */}
-        <img
-          src="/images/decorativa.png" 
-          alt="Decorativa"
-          className="absolute top-0 right-0 w-32 h-120 w-150 opacity-50 pointer-events-none"
-        />
+        <div className="hidden md:block">
+          <Sidebar />
+        </div>
 
-        {/* Header */}
-        <Header search={search} setSearch={setSearch} />
+  
+        <div className="flex-1 p-6 md:p-10 bg-white min-h-screen md:ml-64">
 
-        {/* Cards container */}
-        <div className="bg-[#E6F4EF] p-10 rounded-3xl shadow-md max-w-4xl mx-auto mt-6">
-          <div className="grid grid-cols-100 sm:grid-cols-2 gap-6 justify-items-center">
-            {filteredCards.map((card, index) => (
-              card.link ? (
-                <Link key={index} href={card.link}>
-                  <Card {...card} />
-                </Link>
-              ) : (
-                <Card key={index} {...card} />
-              )
-          ))}
+          <img
+            src="/images/decorativa.png"
+            alt="Decorativa"
+            className="hidden md:block absolute top-0 right-0 md:w-130 opacity-50 pointer-events-none"
+          />
+
+          <Header search={search} setSearch={setSearch} />
+
+
+          <div className="bg-[#E6F4EF] p-6 md:p-10 rounded-3xl shadow-md max-w-4xl mx-auto mt-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 justify-items-center">
+              {filteredCards.map((card, index) =>
+                card.link ? (
+                  <Link key={index} href={card.link}>
+                    <Card {...card} />
+                  </Link>
+                ) : (
+                  <Card key={index} {...card} />
+                )
+              )}
+            </div>
           </div>
         </div>
-      </div>
-    </main>
-
+      </main>
     </>
   );
 }

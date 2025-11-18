@@ -11,9 +11,6 @@ export default function PaginaAdicionarProdutos() {
   const [mensagem, setMensagem] = useState("");
 
   const handleSalvar = async () => {
-    // ------------------------------
-    // 🔌 INTEGRAÇÃO COM A API (COMENTADA)
-    // ------------------------------
 
     /*
     try {
@@ -41,9 +38,7 @@ export default function PaginaAdicionarProdutos() {
     }
     */
 
-    // ------------------------------
-    // MOCK (SEM API)
-    // ------------------------------
+
     setMensagem("Produto adicionado com sucesso!");
     resetarFormulario();
   };
@@ -62,7 +57,7 @@ export default function PaginaAdicionarProdutos() {
           Adicionar Produto
         </h2>
 
-        {/* Formulário */}
+
         <div className="bg-[#D3F0E3] p-6 rounded-lg shadow-lg mb-8">
           <h3 className="text-xl font-semibold mb-5 text-gray-800">
             Cadastro de Produto
